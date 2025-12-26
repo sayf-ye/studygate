@@ -1,0 +1,405 @@
+/* ==========================================
+   WhatsApp Consultants Popup
+   Modern & Professional Design
+   ========================================== */
+
+/* Overlay */
+.whatsapp-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-popup-overlay.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    opacity: 1;
+}
+
+/* Popup Container */
+.whatsapp-popup {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.whatsapp-popup-overlay.active .whatsapp-popup {
+    transform: translate(0, -50%);
+    opacity: 1;
+}
+
+/* Close Button */
+.whatsapp-popup-close {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #666;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.whatsapp-popup-close:hover {
+    background: #e0e0e0;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+/* Header */
+.whatsapp-popup-header {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    padding: 35px 20px 25px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.whatsapp-popup-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-popup-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 10px;
+}
+
+/* Consultants List */
+.whatsapp-consultants-list {
+    padding: 20px;
+}
+
+/* Consultant Card */
+.whatsapp-consultant-card {
+    background: #ffffff;
+    border: 2px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-consultant-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(18, 140, 126, 0.05) 100%);
+    transition: width 0.4s ease;
+    z-index: 0;
+}
+
+.whatsapp-consultant-card:hover::before {
+    width: 100%;
+}
+
+.whatsapp-consultant-card:hover {
+    border-color: #25D366;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.15);
+    transform: translateY(-3px);
+}
+
+.whatsapp-consultant-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Consultant Avatar */
+.whatsapp-consultant-avatar {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.whatsapp-consultant-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-consultant-avatar .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: 700;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Online Status Indicator */
+.whatsapp-status-indicator {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: #25D366;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.4);
+    animation: pulse-status 2s ease-in-out infinite;
+}
+
+@keyframes pulse-status {
+    0%, 100% {
+        box-shadow: 0 2px 6px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 2px 12px rgba(37, 211, 102, 0.8);
+    }
+}
+
+/* Consultant Info */
+.whatsapp-consultant-info {
+    flex: 1;
+    z-index: 1;
+}
+
+.whatsapp-consultant-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 5px;
+    line-height: 1.3;
+}
+
+.whatsapp-consultant-role {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.whatsapp-consultant-role::before {
+    content: '👨‍💼';
+    font-size: 0.85rem;
+}
+
+.whatsapp-consultant-phone {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    direction: ltr;
+    text-align: right;
+}
+
+/* WhatsApp Icon */
+.whatsapp-consultant-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.whatsapp-consultant-card:hover .whatsapp-consultant-icon {
+    background: #128C7E;
+    transform: scale(1.1) rotate(10deg);
+}
+
+.whatsapp-consultant-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+}
+
+/* Footer */
+.whatsapp-popup-footer {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.whatsapp-popup-footer-text {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.whatsapp-popup-footer-link {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.whatsapp-popup-footer-link:hover {
+    color: #128C7E;
+}
+
+/* Custom Scrollbar */
+.whatsapp-popup::-webkit-scrollbar {
+    width: 6px;
+}
+
+.whatsapp-popup::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.whatsapp-popup::-webkit-scrollbar-thumb {
+    background: #25D366;
+    border-radius: 10px;
+}
+
+.whatsapp-popup::-webkit-scrollbar-thumb:hover {
+    background: #128C7E;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .whatsapp-popup {
+        width: 95%;
+        max-width: 380px;
+        border-radius: 15px;
+        left: 10px;
+        max-height: 85vh;
+    }
+
+    .whatsapp-popup-overlay.active .whatsapp-popup {
+        transform: translate(0, -50%);
+    }
+
+    .whatsapp-popup-header {
+        padding: 30px 15px 20px;
+    }
+
+    .whatsapp-popup-title {
+        font-size: 1.3rem;
+    }
+
+    .whatsapp-popup-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-consultants-list {
+        padding: 15px;
+    }
+
+    .whatsapp-consultant-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .whatsapp-consultant-avatar {
+        width: 55px;
+        height: 55px;
+    }
+
+    .whatsapp-consultant-name {
+        font-size: 1rem;
+    }
+
+    .whatsapp-consultant-role {
+        font-size: 0.85rem;
+    }
+
+    .whatsapp-consultant-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .whatsapp-consultant-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Animation for cards */
+.whatsapp-consultant-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.whatsapp-consultant-card:nth-child(1) { animation-delay: 0.1s; }
+.whatsapp-consultant-card:nth-child(2) { animation-delay: 0.2s; }
+.whatsapp-consultant-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility */
+.whatsapp-consultant-card:focus {
+    outline: 3px solid #25D366;
+    outline-offset: 2px;
+}
+
+.whatsapp-popup-close:focus {
+    outline: 3px solid #25D366;
+    outline-offset: 2px;
+}
+
+/* Loading State (optional) */
+.whatsapp-popup.loading .whatsapp-consultants-list {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -1,0 +1,666 @@
+/* ==========================================
+   REGISTRATION FORM - Full Page Design
+   Modern & Clean Style (YOURUNI Inspired)
+   ========================================== */
+
+/* CSS Variables */
+:root {
+    --primary-color: #112d53;
+    --secondary-color: #da7900;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --text-dark: #333;
+    --text-gray: #666;
+    --text-light: #999;
+    --border-color: #d0d0d0;
+    --bg-light: #f8f5f0;
+    --bg-white: #fff;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Full Page Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-light);
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+/* Container */
+.modal-container {
+    background: var(--bg-white);
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    color: var(--text-gray);
+    cursor: pointer;
+    z-index: 100;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Header Section */
+.modal-header {
+    text-align: center;
+    padding: 80px 30px 40px;
+    background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+}
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.modal-title #instituteName {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.modal-description {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.modal-description a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.modal-description a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   HORIZONTAL PROGRESS BAR
+   ========================================== */
+.form-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 30px;
+    background: var(--bg-white);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #e8e8e8;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: var(--transition);
+    border: 3px solid transparent;
+}
+
+.progress-step.active .progress-circle {
+    background: var(--secondary-color);
+    color: var(--bg-white);
+    border-color: rgba(218, 121, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(218, 121, 0, 0.25);
+    transform: scale(1.05);
+}
+
+.progress-step.completed .progress-circle {
+    background: var(--success-color);
+    color: var(--bg-white);
+    border-color: rgba(40, 167, 69, 0.2);
+}
+
+.progress-label {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.progress-step.active .progress-label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.progress-line {
+    width: 180px;
+    height: 3px;
+    background: #e8e8e8;
+    position: relative;
+    margin: 0 -5px;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+.progress-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--secondary-color);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-step.completed + .progress-line::after {
+    width: 100%;
+}
+
+/* ==========================================
+   FORM CONTAINER & STEPS
+   ========================================== */
+#registrationForm {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 30px 80px;
+}
+
+.form-step {
+    display: none;
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+}
+
+.form-step.active {
+    display: block;
+    animation: slideInForm 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInForm {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 35px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+/* ==========================================
+   FORM ELEMENTS
+   ========================================== */
+.form-group {
+    margin-bottom: 28px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.form-label .required {
+    color: var(--danger-color);
+    margin-right: 4px;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dark);
+    background: var(--bg-white);
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-input:hover,
+.form-select:hover {
+    border-color: #b8b8b8;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(218, 121, 0, 0.08);
+}
+
+.form-input::placeholder {
+    color: #bbb;
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 16px center;
+    padding-left: 40px;
+}
+
+/* Phone Input Group */
+.phone-input-group {
+    display: flex;
+    gap: 12px;
+    direction: ltr;
+}
+
+.phone-code {
+    flex: 0 0 140px;
+}
+
+.phone-number {
+    flex: 1;
+}
+
+/* File Upload */
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-label:hover {
+    border-color: var(--secondary-color);
+    background: rgba(218, 121, 0, 0.05);
+}
+
+.file-label svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text-gray);
+}
+
+.file-text {
+    font-size: 15px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+/* Checkbox */
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    direction: ltr;
+}
+
+.checkbox-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--secondary-color);
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Info Box */
+.info-box {
+    display: flex;
+    gap: 15px;
+    padding: 18px 20px;
+    background: rgba(218, 121, 0, 0.05);
+    border: 1px solid rgba(218, 121, 0, 0.15);
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.info-box svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    stroke: var(--secondary-color);
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* Error Messages */
+.error-message {
+    display: block;
+    font-size: 13px;
+    color: var(--danger-color);
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   FORM ACTIONS (BUTTONS)
+   ========================================== */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 45px;
+    padding-top: 35px;
+    border-top: 1px solid var(--bg-light);
+}
+
+.btn {
+    padding: 15px 45px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: var(--bg-white);
+    box-shadow: 0 4px 18px rgba(218, 121, 0, 0.25);
+}
+
+.btn-primary:hover {
+    background: #c26d00;
+    box-shadow: 0 6px 24px rgba(218, 121, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-gray);
+    border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover {
+    background: var(--bg-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-large {
+    min-width: 180px;
+}
+
+.btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================
+   SUCCESS MESSAGE
+   ========================================== */
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 80px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.success-message.active {
+    display: block;
+    animation: fadeInSuccess 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInSuccess {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    margin: 0 auto 30px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    width: 90px;
+    height: 90px;
+    stroke: var(--success-color);
+    stroke-width: 2.5;
+    animation: checkmarkDraw 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes checkmarkDraw {
+    0% {
+        transform: scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.success-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.success-title #successName {
+    color: var(--secondary-color);
+}
+
+.success-text {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.success-text strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+    .modal-header {
+        padding: 60px 20px 30px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+    }
+
+    .modal-description {
+        font-size: 14px;
+    }
+
+    .form-progress {
+        padding: 35px 20px;
+    }
+
+    .progress-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .progress-line {
+        width: 100px;
+    }
+
+    .progress-label {
+        font-size: 12px;
+    }
+
+    #registrationForm {
+        padding: 20px 15px 60px;
+    }
+
+    .form-step {
+        padding: 25px 20px;
+    }
+
+    .step-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+    .phone-input-group {
+        flex-direction: column;
+    }
+
+    .phone-code {
+        flex: 1;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 30px;
+    }
+
+    .success-message {
+        padding: 60px 25px;
+    }
+
+    .success-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-close {
+        top: 15px;
+        left: 15px;
+        width: 38px;
+        height: 38px;
+        font-size: 28px;
+    }
+
+    .progress-step {
+        transform: scale(0.9);
+    }
+
+    .progress-line {
+        width: 60px;
+    }
+}

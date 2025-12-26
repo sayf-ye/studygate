@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}المدونة - STUDYGATE{% endblock %}
+{% block meta_description %}مدونة STUDYGATE - مقالات ونصائح للطلاب الدوليين في ماليزيا{% endblock %}
+{% block content %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title animate-fade-up">المدونة</h1>
+            <p class="page-subtitle animate-fade-up">مقالات ونصائح مفيدة للطلاب الدوليين</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="section blog-section">
+        <div class="container">
+            <div class="blog-grid-full">
+                {% for post in posts %}
+                <article class="blog-card-full animate-fade-up">
+                    {% if post.hero_image %}
+                    <div class="blog-image-full">
+                        <img src="{{ post.hero_image.url }}" alt="{{ post.title }}" loading="lazy">
+                    </div>
+                    {% endif %}
+                    <div class="blog-content-full">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                {{ post.published_at|date:"j F Y" }}
+                            </span>
+                            {% if post.category %}<span class="blog-category">{{ post.category }}</span>{% endif %}
+                        </div>
+                        <h2 class="blog-title-full">{{ post.title }}</h2>
+                        <p class="blog-excerpt-full">{{ post.excerpt }}</p>
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-outline">اقرأ المزيد</a>
+                    </div>
+                </article>
+                {% empty %}
+                <p class="animate-fade-up">لا توجد مقالات حالياً.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-wrapper animate-fade-up">
+                <h2 class="newsletter-title">اشترك في نشرتنا البريدية</h2>
+                <p class="newsletter-text">احصل على آخر الأخبار والمقالات المفيدة مباشرة في بريدك</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني" required>
+                    <button type="submit" class="btn btn-primary">اشترك</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

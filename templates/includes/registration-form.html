@@ -1,0 +1,374 @@
+<!-- ==========================================
+     REGISTRATION FORM - Multi-Step Modal
+     Ready for Django Integration
+     ========================================== -->
+
+<!-- Modal Overlay -->
+<div id="registrationModal" class="modal-overlay">
+    <div class="modal-container">
+        <!-- Close Button -->
+        <button class="modal-close" onclick="closeRegistrationForm()" aria-label="Close">&times;</button>
+        
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h2 class="modal-title">نموذج التقديم على طلب قبول من معهد <span id="instituteName">المعهد</span></h2>
+            <p class="modal-description">
+                قم بتعبئة الحقول أدناه لطلب قبول من المعهد، ويرجى التأكد من صحة المعلومات قبل إكمال التسجيل.
+                في حال أردت الاستفسار، <a href="../contact.html">تواصل معنا</a>
+            </p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="form-progress">
+            <div class="progress-step active" data-step="1">
+                <div class="progress-circle">1</div>
+                <span class="progress-label">المعلومات الشخصية</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+                <div class="progress-circle">2</div>
+                <span class="progress-label">المستندات المطلوبة</span>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <!-- Django Integration: Replace form action with Django URL -->
+        <!-- Example: action="{% url 'submit_application' %}" -->
+        <form id="registrationForm" method="POST" enctype="multipart/form-data" action="">
+            
+            <!-- Django CSRF Token -->
+            <!-- {% csrf_token %} -->
+            
+            <!-- Hidden field for institute name -->
+            <input type="hidden" name="institute_name" id="instituteNameInput">
+            
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" data-step="1">
+                <h3 class="step-title">المعلومات الشخصية</h3>
+                
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">
+                        الاسم الكامل للطالب <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="full_name" 
+                        class="form-input"
+                        placeholder="أدخل الاسم الكامل"
+                        required
+                    >
+                    <!-- Django Validation Error -->
+                    <!-- {% if form.full_name.errors %}
+                    <span class="error-message">{{ form.full_name.errors.0 }}</span>
+                    {% endif %} -->
+                    <span class="error-message" id="fullNameError"></span>
+                </div>
+
+                <!-- Nationality -->
+                <div class="form-group">
+                    <label for="nationality" class="form-label">
+                        الجنسية <span class="required">*</span>
+                    </label>
+                    <select 
+                        id="nationality" 
+                        name="nationality" 
+                        class="form-select"
+                        required
+                    >
+                        <option value="">اختر الجنسية</option>
+                        <option value="السعودية">السعودية</option>
+                        <option value="الإمارات">الإمارات</option>
+                        <option value="الكويت">الكويت</option>
+                        <option value="قطر">قطر</option>
+                        <option value="البحرين">البحرين</option>
+                        <option value="عمان">عمان</option>
+                        <option value="الأردن">الأردن</option>
+                        <option value="العراق">العراق</option>
+                        <option value="سوريا">سوريا</option>
+                        <option value="لبنان">لبنان</option>
+                        <option value="فلسطين">فلسطين</option>
+                        <option value="مصر">مصر</option>
+                        <option value="السودان">السودان</option>
+                        <option value="ليبيا">ليبيا</option>
+                        <option value="تونس">تونس</option>
+                        <option value="الجزائر">الجزائر</option>
+                        <option value="المغرب">المغرب</option>
+                        <option value="موريتانيا">موريتانيا</option>
+                        <option value="اليمن">اليمن</option>
+                        <option value="جزر القمر">جزر القمر</option>
+                        <option value="جيبوتي">جيبوتي</option>
+                        <option value="الصومال">الصومال</option>
+                        <option value="دولة أخرى">دولة أخرى</option>
+                    </select>
+                    <span class="error-message" id="nationalityError"></span>
+                </div>
+
+                <!-- Country of Residence -->
+                <div class="form-group">
+                    <label for="residence" class="form-label">
+                        بلد الإقامة <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="residence" 
+                        name="country_of_residence" 
+                        class="form-input"
+                        placeholder="أدخل بلد الإقامة الحالي"
+                        required
+                    >
+                    <span class="error-message" id="residenceError"></span>
+                </div>
+
+                <!-- Study Duration -->
+                <div class="form-group">
+                    <label for="studyDuration" class="form-label">
+                        مدة الدراسة المطلوبة (عدد الأشهر) <span class="required">*</span>
+                    </label>
+                    <select 
+                        id="studyDuration" 
+                        name="study_duration" 
+                        class="form-select"
+                        required
+                    >
+                        <option value="">اختر المدة</option>
+                        <option value="1">شهر واحد</option>
+                        <option value="2">شهران</option>
+                        <option value="3">3 أشهر</option>
+                        <option value="4">4 أشهر</option>
+                        <option value="5">5 أشهر</option>
+                        <option value="6">6 أشهر</option>
+                        <option value="7">7 أشهر</option>
+                        <option value="8">8 أشهر</option>
+                        <option value="9">9 أشهر</option>
+                        <option value="10">10 أشهر</option>
+                        <option value="11">11 شهر</option>
+                        <option value="12">12 شهر</option>
+                    </select>
+                    <span class="error-message" id="studyDurationError"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        البريد الإلكتروني <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input"
+                        placeholder="example@email.com"
+                        required
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Phone Number with Country Code -->
+                <div class="form-group">
+                    <label class="form-label">
+                        رقم الجوال <span class="required">*</span>
+                    </label>
+                    <div class="phone-input-group">
+                        <select 
+                            id="countryCode" 
+                            name="country_code" 
+                            class="form-select phone-code"
+                            required
+                        >
+                            <option value="+966">🇸🇦 +966</option>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+965">🇰🇼 +965</option>
+                            <option value="+974">🇶🇦 +974</option>
+                            <option value="+973">🇧🇭 +973</option>
+                            <option value="+968">🇴🇲 +968</option>
+                            <option value="+962">🇯🇴 +962</option>
+                            <option value="+964">🇮🇶 +964</option>
+                            <option value="+963">🇸🇾 +963</option>
+                            <option value="+961">🇱🇧 +961</option>
+                            <option value="+970">🇵🇸 +970</option>
+                            <option value="+20">🇪🇬 +20</option>
+                            <option value="+249">🇸🇩 +249</option>
+                            <option value="+218">🇱🇾 +218</option>
+                            <option value="+216">🇹🇳 +216</option>
+                            <option value="+213">🇩🇿 +213</option>
+                            <option value="+212">🇲🇦 +212</option>
+                            <option value="+222">🇲🇷 +222</option>
+                            <option value="+967">🇾🇪 +967</option>
+                            <option value="+60" selected>🇲🇾 +60</option>
+                        </select>
+                        <input 
+                            type="tel" 
+                            id="phoneNumber" 
+                            name="phone_number" 
+                            class="form-input phone-number"
+                            placeholder="123456789"
+                            pattern="[0-9]{7,15}"
+                            required
+                        >
+                    </div>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary btn-large" onclick="nextStep()">
+                        التالي
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Document Upload -->
+            <div class="form-step" data-step="2">
+                <h3 class="step-title">المستندات المطلوبة</h3>
+                
+                <!-- Passport Photo -->
+                <div class="form-group">
+                    <label for="passportPhoto" class="form-label">
+                        صورة الجواز (الصفحة الأولى) <span class="required">*</span>
+                    </label>
+                    <div class="file-upload-wrapper">
+                        <input 
+                            type="file" 
+                            id="passportPhoto" 
+                            name="passport_photo" 
+                            class="file-input"
+                            accept="image/*,.pdf"
+                            required
+                        >
+                        <label for="passportPhoto" class="file-label">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="file-text">اختر ملف الجواز</span>
+                        </label>
+                        <span class="file-name" id="passportFileName"></span>
+                    </div>
+                    <span class="error-message" id="passportPhotoError"></span>
+                </div>
+
+                <!-- White Background Photo -->
+                <div class="form-group">
+                    <label for="personalPhoto" class="form-label">
+                        صورة خلفية بيضاء <span class="required">*</span>
+                    </label>
+                    <div class="file-upload-wrapper">
+                        <input 
+                            type="file" 
+                            id="personalPhoto" 
+                            name="personal_photo" 
+                            class="file-input"
+                            accept="image/*"
+                            required
+                        >
+                        <label for="personalPhoto" class="file-label">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="file-text">اختر الصورة الشخصية</span>
+                        </label>
+                        <span class="file-name" id="personalPhotoName"></span>
+                    </div>
+                    <span class="error-message" id="personalPhotoError"></span>
+                </div>
+
+                <!-- High School Certificate -->
+                <div class="form-group">
+                    <label for="certificate" class="form-label">
+                        شهادة ثانوية <span class="required">*</span>
+                    </label>
+                    <div class="file-upload-wrapper">
+                        <input 
+                            type="file" 
+                            id="certificate" 
+                            name="high_school_certificate" 
+                            class="file-input"
+                            accept="image/*,.pdf"
+                            required
+                        >
+                        <label for="certificate" class="file-label">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="file-text">اختر الشهادة</span>
+                        </label>
+                        <span class="file-name" id="certificateName"></span>
+                    </div>
+                    <span class="error-message" id="certificateError"></span>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-group">
+                    <div class="checkbox-wrapper">
+                        <input 
+                            type="checkbox" 
+                            id="termsAccept" 
+                            name="accept_terms" 
+                            class="checkbox-input"
+                            required
+                        >
+                        <label for="termsAccept" class="checkbox-label">
+                            By submitting this form, I agree to the terms & condition
+                        </label>
+                    </div>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <!-- Information Note -->
+                <div class="info-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <p>
+                        بعد تقديم طلبك، سيتم مراجعة ملفاتك وسيتواصل معك مستشار تعليمي لبدء إجراءات القبول وتزويدك بمزيد من المعلومات.
+                    </p>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline btn-large" onclick="previousStep()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        السابق
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                        إرسال الطلب
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message">
+            <div class="success-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h3 class="success-title">شكرًا لك <span id="successName"></span>، تم تقديم طلبك بنجاح.</h3>
+            <p class="success-text">
+                ستتم مراجعة ملفاتك، وسيقوم المستشار التعليمي بالتواصل معك عبر بريدك الإلكتروني 
+                <strong id="successEmail"></strong> أو عبر الواتساب لبدء إجراءات القبول وتزويدك بالمعلومات المطلوبة.
+            </p>
+            <button class="btn btn-primary btn-large" onclick="closeRegistrationForm()">إغلاق</button>
+        </div>
+    </div>
+</div>

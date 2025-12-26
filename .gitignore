@@ -1,13 +1,90 @@
-# Operating System Files
-.DS_Store
-Thumbs.db
-desktop.ini
+# ==========================================
+# STUDYGATE Project - .gitignore
+# ==========================================
 
-# Editor Files
+# ===== Python / Django =====
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Virtual Environment
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Static & Media Files
+/staticfiles/
+/static_root/
+
+# ===== IDEs =====
+# VS Code
 .vscode/
+*.code-workspace
+
+# PyCharm
 .idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
 *.swp
 *.swo
+*~
+
+# ===== Operating System =====
+# macOS
+.DS_Store
+._*
+.AppleDouble
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ===== Environment Variables =====
+.env
+.env.local
+*.env
+
+# ===== Testing =====
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ===== Backups =====
+*.bak
+*.backup
+*.old
+*-backup/
+
+# ===== Temporary Files =====
+*.tmp
+.cache/
+
+# ===== Logs =====
+*.log
+logs/
 *~
 
 # Temporary Files

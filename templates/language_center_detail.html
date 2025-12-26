@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ center.name }} - STUDYGATE{% endblock %}
+{% block content %}
+<section class="institute-header-enhanced">
+    <div class="institute-header-bg">
+        <div class="header-gradient-overlay"></div>
+        <div class="header-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="institute-header-content-enhanced">
+            <div class="institute-logo-wrapper-enhanced animate-fade-up">
+                {% if center.logo %}
+                <div class="logo-glow"></div>
+                <img src="{{ center.logo.url }}" alt="{{ center.name }}" class="institute-logo-large">
+                {% endif %}
+            </div>
+            <div class="institute-header-text-enhanced">
+                <div class="institute-breadcrumb animate-fade-up">
+                    <a href="{% url 'partners' %}">الشركاء</a>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                    <span>{{ center.name }}</span>
+                </div>
+                <h1 class="institute-title-enhanced animate-fade-up">{{ center.name }}</h1>
+                {% if center.location %}
+                <p class="institute-location-enhanced animate-fade-up">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    {{ center.location }}
+                </p>
+                {% endif %}
+                <div class="institute-header-actions-enhanced animate-fade-up">
+                    <a class="btn btn-primary btn-large btn-glow" href="#registration">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        سجل الآن
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-white btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        تواصل معنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section institute-about-enhanced">
+    <div class="container">
+        <div class="section-header-center">
+            <div class="section-badge animate-fade-up">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4M12 8h.01"></path>
+                </svg>
+                نبذة عن المعهد
+            </div>
+            <h2 class="section-title animate-fade-up">عن {{ center.name }}</h2>
+        </div>
+        <div class="institute-content-enhanced">
+            <div class="institute-description-card animate-fade-up">
+                {% if center.about %}
+                {{ center.about|safe }}
+                {% elif center.description %}
+                <p>{{ center.description }}</p>
+                {% else %}
+                <p class="placeholder-text">تفاصيل المعهد ستتوفر قريباً.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section institute-features-enhanced">
+    <div class="container">
+        <div class="section-header-center">
+            <div class="section-badge animate-fade-up">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                المزايا والخدمات
+            </div>
+            <h2 class="section-title animate-fade-up">مميزات المعهد</h2>
+        </div>
+        <div class="features-content-enhanced animate-fade-up">
+            {% if center.features %}
+                {{ center.features|safe }}
+            {% else %}
+                <p class="placeholder-text">سيتم إضافة المميزات قريباً.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section institute-programs-enhanced">
+    <div class="container">
+        <div class="section-header-center">
+            <div class="section-badge animate-fade-up">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                البرامج الدراسية
+            </div>
+            <h2 class="section-title animate-fade-up">البرامج المتاحة</h2>
+        </div>
+        <div class="programs-content-enhanced animate-fade-up">
+            {% if center.programs %}
+                {{ center.programs|safe }}
+            {% else %}
+                <p class="placeholder-text">سيتم إضافة البرامج قريباً.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section institute-fees-enhanced">
+    <div class="container">
+        <div class="section-header-center">
+            <div class="section-badge animate-fade-up">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                التكاليف والرسوم
+            </div>
+            <h2 class="section-title animate-fade-up">الرسوم الدراسية</h2>
+        </div>
+        <div class="fees-content-enhanced animate-fade-up">
+            {% if center.fees %}
+                {{ center.fees|safe }}
+            {% else %}
+                <p class="placeholder-text">سيتم إضافة الرسوم قريباً.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section institute-location-enhanced">
+    <div class="container">
+        <div class="section-header-center">
+            <div class="section-badge animate-fade-up">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                الموقع والعنوان
+            </div>
+            <h2 class="section-title animate-fade-up">موقع المعهد</h2>
+        </div>
+        <div class="location-content-enhanced animate-fade-up">
+            {% if center.location_info %}
+                {{ center.location_info|safe }}
+            {% else %}
+                <p class="placeholder-text">سيتم إضافة تفاصيل الموقع قريباً.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section id="registration" class="registration-cta-banner-enhanced">
+    <div class="cta-banner-pattern"></div>
+    <div class="container">
+        <div class="cta-banner-content-enhanced animate-fade-up">
+            <div class="cta-banner-icon-enhanced">
+                <div class="icon-pulse"></div>
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+            </div>
+            <div class="cta-banner-text-enhanced">
+                <h2 class="cta-banner-title-enhanced">قدم طلبك للالتحاق بـ {{ center.name }}</h2>
+                <p class="cta-banner-description-enhanced">عبئ النموذج أدناه وسيتواصل معك مستشارنا التعليمي لمساعدتك في إتمام الإجراءات</p>
+                <div class="cta-benefits">
+                    <div class="cta-benefit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>استشارة مجانية</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>متابعة مستمرة</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>رد سريع</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section registration-form-section-enhanced" id="registration-form-section">
+    <div class="container">
+        {% if success %}
+            <div class="success-message-enhanced animate-fade-up">
+                <div class="success-icon-enhanced">
+                    <div class="success-checkmark">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="success-title-enhanced">تم استلام طلبك بنجاح!</h3>
+                <p class="success-text-enhanced">سيتواصل معك مستشارنا التعليمي خلال 24 ساعة عبر البريد الإلكتروني أو الواتساب</p>
+                <a href="{% url 'partners' %}" class="btn btn-outline btn-large">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    العودة للشركاء
+                </a>
+            </div>
+        {% else %}
+            <div class="registration-form-card animate-fade-up">
+                <div class="form-card-header">
+                    <h3 class="form-card-title">نموذج التسجيل</h3>
+                    <p class="form-card-subtitle">جميع الحقول المطلوبة مميزة بعلامة *</p>
+                </div>
+                <form class="registration-form-enhanced" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form-grid-enhanced">
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                الاسم الكامل *
+                            </label>
+                            {{ form.full_name }}
+                            {{ form.full_name.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M2 12h20"></path>
+                                </svg>
+                                الجنسية *
+                            </label>
+                            {{ form.nationality }}
+                            {{ form.nationality.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                بلد الإقامة *
+                            </label>
+                            {{ form.country_of_residence }}
+                            {{ form.country_of_residence.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                مدة الدراسة (أشهر) *
+                            </label>
+                            {{ form.study_duration }}
+                            {{ form.study_duration.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                البريد الإلكتروني *
+                            </label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                مفتاح الدولة *
+                            </label>
+                            {{ form.country_code }}
+                            {{ form.country_code.errors }}
+                        </div>
+                        <div class="form-group-enhanced">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                رقم الجوال *
+                            </label>
+                            {{ form.phone_number }}
+                            {{ form.phone_number.errors }}
+                        </div>
+                        <div class="form-group-enhanced form-group-file">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                صورة الجواز *
+                            </label>
+                            {{ form.passport_photo }}
+                            {{ form.passport_photo.errors }}
+                        </div>
+                        <div class="form-group-enhanced form-group-file">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                                صورة شخصية بخلفية بيضاء *
+                            </label>
+                            {{ form.personal_photo }}
+                            {{ form.personal_photo.errors }}
+                        </div>
+                        <div class="form-group-enhanced form-group-file">
+                            <label class="form-label-enhanced">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                شهادة ثانوية *
+                            </label>
+                            {{ form.high_school_certificate }}
+                            {{ form.high_school_certificate.errors }}
+                        </div>
+                        <div class="form-group-enhanced form-group-checkbox">
+                            <label class="checkbox-label-enhanced">
+                                {{ form.accept_terms }}
+                                <span class="checkbox-text">أوافق على الشروط والأحكام وسياسة الخصوصية *</span>
+                            </label>
+                            {{ form.accept_terms.errors }}
+                        </div>
+                    </div>
+                    <div class="form-actions-enhanced">
+                        <button type="submit" class="btn btn-primary btn-large btn-submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13"></path>
+                                <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                            إرسال الطلب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

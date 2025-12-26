@@ -148,7 +148,8 @@ animatedElements.forEach(el => observer.observe(el));
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-if (contactForm) {
+// Skip JS handling when the form is handled by Django on the server (data-server="true").
+if (contactForm && !contactForm.dataset.server) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -396,12 +397,16 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ All features initialized');
     
     // === PARTNERS SLIDER ===
-    const partnersContainer = document.querySelector('.partners-logos');
+    const partnersContainer = document.querySelector('.partners-slider') || document.querySelector('.partners-logos');
     const prevBtn = document.querySelector('.partner-arrow-prev');
     const nextBtn = document.querySelector('.partner-arrow-next');
     
     if (partnersContainer && prevBtn && nextBtn) {
-        const scrollAmount = 220;
+        console.log('✅ Partners slider initialized');
+        
+        const scrollAmount = 284; // 260px card width + 24px gap
+        let autoScrollInterval;
+        let userPaused = false;
         
         // Debounce function for better performance
         let scrollTimeout;
@@ -418,13 +423,168 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         };
         
-        prevBtn.addEventListener('click', () => handleScroll('prev'));
-        nextBtn.addEventListener('click', () => handleScroll('next'));
+        // Auto scroll function - continuous
+        const startAutoScroll = () => {
+            if (autoScrollInterval) return;
+            
+            console.log('▶️ Auto scroll started - continuous mode');
+            
+            autoScrollInterval = setInterval(() => {
+                if (!userPaused) {
+                    // Check if reached end, then scroll back to start
+                    const maxScroll = partnersContainer.scrollWidth - partnersContainer.clientWidth;
+                    
+                    if (partnersContainer.scrollLeft >= maxScroll - 10) {
+                        partnersContainer.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        handleScroll('next');
+                    }
+                }
+            }, 3000); // Auto scroll every 3 seconds
+        };
+        
+        const stopAutoScroll = () => {
+            if (autoScrollInterval) {
+                console.log('⏸️ Auto scroll paused temporarily');
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+        };
+        
+        const resumeAutoScroll = () => {
+            userPaused = false;
+            if (!autoScrollInterval) {
+                startAutoScroll();
+            }
+        };
+        
+        // Manual controls - pause temporarily then resume
+        prevBtn.addEventListener('click', () => {
+            console.log('⬅️ Previous button clicked');
+            userPaused = true;
+            handleScroll('prev');
+            setTimeout(() => {
+                resumeAutoScroll();
+            }, 3000); // Resume after 3 seconds
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            console.log('➡️ Next button clicked');
+            userPaused = true;
+            handleScroll('next');
+            setTimeout(() => {
+                resumeAutoScroll();
+            }, 3000); // Resume after 3 seconds
+        });
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') handleScroll('next');
-            if (e.key === 'ArrowRight') handleScroll('prev');
+            if (e.key === 'ArrowLeft') {
+                userPaused = true;
+                handleScroll('next');
+                setTimeout(resumeAutoScroll, 3000);
+            }
+            if (e.key === 'ArrowRight') {
+                userPaused = true;
+                handleScroll('prev');
+                setTimeout(resumeAutoScroll, 3000);
+            }
         });
+        
+        // Touch swipe support - brief pause then continue
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        partnersContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            userPaused = true;
+        }, { passive: true });
+        
+        partnersContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            setTimeout(resumeAutoScroll, 3000);
+        }, { passive: true });
+        
+        const handleSwipe = () => {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    handleScroll('next');
+                } else {
+                    handleScroll('prev');
+                }
+            }
+        };
+        
+        // Start auto scroll immediately - no pause on hover
+        startAutoScroll();
+        
+        // Keep running even when page is not visible (optional - remove if you want to save resources)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Optional: stop when tab is hidden to save resources
+                stopAutoScroll();
+            } else {
+                startAutoScroll();
+            }
+        });
+    } else {
+        console.error('❌ Partners slider elements not found!');
     }
+});
+
+// === SMOOTH SCROLL FOR TABLE OF CONTENTS ===
+document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('.toc-link');
+    
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 100; // Offset for fixed navbar
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Highlight active link
+                tocLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Highlight TOC link on scroll
+    const sections = document.querySelectorAll('.post-body h2[id]');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
 });

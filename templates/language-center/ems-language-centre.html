@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EMS Language Centre - معهد لغة معتمد بخبرة واسعة في تعليم اللغة الإنجليزية في ماليزيا">
+    <title>EMS Language Centre - STUDYGATE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/registration-form.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="logo">
+                    <span class="logo-text">STUDY<span class="logo-accent">GATE</span></span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="../about.html" class="nav-link">من نحن</a></li>
+                    <li><a href="../services.html" class="nav-link">خدماتنا</a></li>
+                    <li><a href="../partners.html" class="nav-link active">شركاؤنا</a></li>
+                    <li><a href="../blog.html" class="nav-link">المدونة</a></li>
+                    <li><a href="../contact.html" class="nav-link">تواصل معنا</a></li>
+                    <li><a href="../contact.html" class="btn btn-primary">استشارة مجانية</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Institute Header -->
+    <section class="institute-header">
+        <div class="container">
+            <div class="institute-header-content">
+                <div class="institute-logo-wrapper animate-fade-up">
+                    <img src="../assets/img/EMS.png" alt="EMS Language Centre Logo" class="institute-logo-large">
+                </div>
+                <div class="institute-header-text">
+                    <h1 class="institute-title animate-fade-up">EMS Language Centre</h1>
+                    <p class="institute-location animate-fade-up">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        كوالالمبور، ماليزيا
+                    </p>
+                    <div class="institute-header-actions animate-fade-up">
+                        <button class="btn btn-primary btn-large" onclick="openRegistrationForm()">سجّل الآن</button>
+                        <a href="../contact.html" class="btn btn-outline btn-large">تواصل معنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Institute -->
+    <section class="section institute-about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">عن EMS Language Centre</h2>
+            </div>
+            <div class="institute-content">
+                <div class="institute-description animate-fade-up">
+                    <p>
+                        مركز EMS للغات هو معهد لغة معتمد ومعترف به بخبرة واسعة تمتد لسنوات طويلة في مجال تعليم اللغة الإنجليزية في ماليزيا. يتميز المركز بتقديم برامج تعليمية متطورة تلبي احتياجات الطلاب الدوليين وتساعدهم على تحقيق أهدافهم الأكاديمية والمهنية.
+                    </p>
+                    <p>
+                        يقع المركز في موقع استراتيجي في قلب كوالالمبور، مما يوفر للطلاب سهولة الوصول إلى المرافق الحيوية والخدمات المختلفة. يفتخر EMS بكادره التدريسي المؤهل والمعتمد دولياً، الذي يستخدم أساليب تعليمية حديثة ومبتكرة لضمان تحقيق أفضل النتائج التعليمية للطلاب.
+                    </p> 
+
+                            <!-- YouTube Video -->
+                <div class="youtube-video" style="margin-top: 25px;">
+                    <iframe 
+                        width="100%" 
+                        height="400" 
+                        src="https://www.youtube.com/embed/AVLycEY3lI0" 
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section institute-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">مميزات المركز</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">اعتماد دولي</h3>
+                    <p class="feature-description">معهد معتمد ومعترف به من قبل الجهات التعليمية المحلية والدولية</p>
+                </div>
+
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">معلمون معتمدون</h3>
+                    <p class="feature-description">فريق تدريسي ذو خبرة عالية ومعتمد دولياً في تعليم اللغة الإنجليزية</p>
+                </div>
+
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">مناهج متقدمة</h3>
+                    <p class="feature-description">برامج تعليمية حديثة مصممة وفق أحدث المعايير العالمية</p>
+                </div>
+
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">بيئة تعليمية متميزة</h3>
+                    <p class="feature-description">فصول دراسية مجهزة بأحدث التقنيات والوسائل التعليمية</p>
+                </div>
+
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">برامج شاملة</h3>
+                    <p class="feature-description">دورات متنوعة تغطي جميع مستويات اللغة الإنجليزية</p>
+                </div>
+
+                <div class="feature-card animate-fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">موقع استراتيجي</h3>
+                    <p class="feature-description">في قلب كوالالمبور قريب من جميع المرافق والخدمات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section institute-programs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">البرامج المتاحة</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card animate-fade-up">
+                    <h3 class="program-title">برنامج اللغة الإنجليزية العامة</h3>
+                    <p class="program-description">برنامج شامل يركز على تطوير جميع المهارات اللغوية الأساسية بطريقة متكاملة ومتوازنة.</p>
+                    <ul class="program-features">
+                        <li>تطوير مهارات القراءة والكتابة</li>
+                        <li>تحسين مهارات الاستماع والمحادثة</li>
+                        <li>بناء قاعدة قوية من المفردات</li>
+                        <li>فهم عميق لقواعد اللغة</li>
+                        <li>تمارين تفاعلية ومشاريع عملية</li>
+                    </ul>
+                </div>
+
+                <div class="program-card animate-fade-up">
+                    <h3 class="program-title">برنامج التحضير لـ IELTS</h3>
+                    <p class="program-description">برنامج متخصص لإعداد الطلاب لاجتياز اختبار IELTS بدرجات عالية.</p>
+                    <ul class="program-features">
+                        <li>تدريب مكثف على أقسام الاختبار الأربعة</li>
+                        <li>استراتيجيات متقدمة للإجابة</li>
+                        <li>اختبارات تجريبية منتظمة</li>
+                        <li>ملاحظات تفصيلية على الأداء</li>
+                        <li>نصائح وإرشادات من خبراء الاختبار</li>
+                    </ul>
+                </div>
+
+                <div class="program-card animate-fade-up">
+                    <h3 class="program-title">برنامج اللغة الإنجليزية المكثف</h3>
+                    <p class="program-description">برنامج مكثف للطلاب الذين يرغبون في تطوير مهاراتهم اللغوية بسرعة.</p>
+                    <ul class="program-features">
+                        <li>جدول دراسي مكثف</li>
+                        <li>تركيز على المحادثة والتواصل</li>
+                        <li>أنشطة تطبيقية يومية</li>
+                        <li>متابعة فردية للتقدم</li>
+                        <li>فصول صغيرة للتفاعل الأفضل</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Tuition Fees -->
+    <section class="section institute-fees">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">الرسوم الدراسية</h2>
+                <p class="section-subtitle animate-fade-up">رسوم تنافسية للطلاب الدوليين</p>
+            </div>
+            <div class="fees-table-wrapper animate-fade-up">
+                <table class="fees-table">
+                    <thead>
+                        <tr>
+                            <th>المدة</th>
+                            <th>الرسوم</th>
+                            <th>مدة التأشيرة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>شهر واحد</td>
+                            <td> 2,875 رنجت ماليزي</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>شهرين</td>
+                            <td>4,500 رنجت ماليزي</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>3 أشهر</td>
+                            <td> 5,500 رنجت ماليزي</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>4 أشهر</td>
+                            <td>13,300 رنجت ماليزي</td>
+                            <td>6 أشهر</td>
+                        </tr>
+                        <tr>
+                            <td>5 أشهر</td>
+                            <td>15,800 رنجت ماليزي</td>
+                            <td>6 أشهر</td>
+                        </tr>
+                        <tr>
+                            <td>6 أشهر</td>
+                            <td>15,800 رنجت ماليزي</td>
+                            <td>6 أشهر</td>
+                        </tr>
+                        <tr>
+                            <td>7 أشهر</td>
+                            <td> 18,300 رنجت ماليزي</td>
+                            <td>7 أشهر</td>
+                        </tr>
+                        <tr>
+                            <td>8 أشهر</td>
+                            <td> 23,500 رنجت ماليزي</td>
+                            <td>12 شهر</td>
+                        </tr>
+
+                        <tr>
+                            <td>9 أشهر</td>
+                            <td> 26,000 رنجت ماليزي</td>
+                            <td>12 شهر</td>
+                        </tr>
+                        <tr>
+                            <td>10 أشهر</td>
+                            <td>23,500 رنجت ماليزي</td>
+                            <td>12 شهر</td>
+                        </tr>
+                        <tr>
+                            <td>11 أشهر</td>
+                            <td>26,000 رنجت ماليزي</td>
+                            <td>12 شهر</td>    
+                        </tr>
+                        <tr>
+                            <td>12 أشهر</td>
+                            <td> 26,000 رنجت ماليزي</td>
+                            <td>12 شهر</td>  
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Steps -->
+    <section class="section registration-steps">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">خطوات التسجيل في EMS Language Centre</h2>
+            </div>
+            <div class="steps-grid animate-fade-up">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <rect x="20" y="30" width="60" height="45" rx="4" fill="#FFF4E6" stroke="#da7900" stroke-width="2"/>
+                            <path d="M35 40 L45 50 L55 45" stroke="#da7900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <line x1="30" y1="25" x2="50" y2="15" stroke="#da7900" stroke-width="2"/>
+                            <line x1="50" y1="15" x2="70" y2="25" stroke="#da7900" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">خطاب القبول</h3>
+                    <p class="step-description">الحصول على خطاب القبول من المركز</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <rect x="25" y="20" width="50" height="60" rx="4" fill="#FFF4E6" stroke="#da7900" stroke-width="2"/>
+                            <circle cx="50" cy="40" r="8" fill="#da7900"/>
+                            <path d="M38 55 Q50 50 62 55" stroke="#da7900" stroke-width="2" fill="none"/>
+                            <circle cx="72" cy="50" r="15" fill="#4CAF50" stroke="white" stroke-width="2"/>
+                            <path d="M67 50 L70 53 L77 46" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">إجراءات التأشيرة</h3>
+                    <p class="step-description">تقديم طلب التأشيرة الدراسية</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <rect x="25" y="35" width="35" height="45" rx="3" fill="#FFF4E6" stroke="#da7900" stroke-width="2"/>
+                            <rect x="40" y="35" width="35" height="25" rx="3" fill="#da7900"/>
+                            <circle cx="47" cy="70" r="3" fill="#da7900"/>
+                            <rect x="67" y="47" width="8" height="15" rx="2" fill="#8B4513"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">السكن</h3>
+                    <p class="step-description">ترتيب السكن المناسب</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <ellipse cx="50" cy="65" rx="25" ry="8" fill="#666"/>
+                            <rect x="35" y="35" width="30" height="30" rx="15" fill="#FFD700" stroke="#da7900" stroke-width="2"/>
+                            <circle cx="43" cy="42" r="3" fill="#333"/>
+                            <circle cx="57" cy="42" r="3" fill="#333"/>
+                            <path d="M43 52 Q50 56 57 52" stroke="#333" stroke-width="2" fill="none"/>
+                            <rect x="45" y="20" width="10" height="8" fill="#da7900"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">استقبال المطار</h3>
+                    <p class="step-description">خدمة الاستقبال من المطار</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 20 L65 40 L80 45 L65 60 L68 80 L50 70 L32 80 L35 60 L20 45 L35 40 Z" fill="#FFF4E6" stroke="#da7900" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="12" fill="#da7900"/>
+                            <path d="M45 50 L48 53 L55 46" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">الوصول والتسجيل</h3>
+                    <p class="step-description">الوصول والبدء في الدراسة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section institute-location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">موقع المركز</h2>
+            </div>
+            <div class="location-content animate-fade-up">
+                <div class="location-info">
+                    <h3>العنوان</h3>
+                    <p>كوالالمبور، ماليزيا</p>
+                    <p>موقع مركزي ممتاز يوفر سهولة الوصول من جميع أنحاء المدينة</p>
+                    
+                    <h3 style="margin-top: 30px;">ساعات العمل</h3>
+                    <p>الإثنين - الجمعة: 8:30 صباحاً - 5:30 مساءً</p>
+                    <p>السبت: 9:00 صباحاً - 1:00 مساءً</p>
+                    <p>الأحد: مغلق</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration CTA Banner -->
+    <section class="registration-cta-banner">
+        <div class="container">
+            <div class="cta-banner-content animate-fade-up">
+                <div class="cta-banner-icon">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                </div>
+                <div class="cta-banner-text">
+                    <h2 class="cta-banner-title">هل أنت مستعد للبدء؟</h2>
+                    <p class="cta-banner-description">قدّم طلبك الآن وابدأ رحلتك التعليمية فيEMS Language Centre خلال دقائق</p>
+                </div>
+                <button class="btn-register-now" onclick="openRegistrationForm('EMS Language Centre')">
+                    <span>سجّل الآن</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-wrapper animate-fade-up">
+                <h2 class="cta-title">هل تريد الالتحاق بـ EMS Language Centre؟</h2>
+                <p class="cta-text">تواصل معنا الآن للحصول على استشارة مجانية ومعرفة المزيد عن برامج المركز</p>
+                <div class="cta-buttons">
+                    <a href="../contact.html" class="btn btn-secondary btn-large">استشارة مجانية</a>
+                    <a href="https://wa.me/60123545072" class="btn btn-outline-white btn-large" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 8px;">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        واتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">STUDYGATE</h3>
+                    <p class="footer-description">استشارات تعليمية للطلاب الدوليين في ماليزيا</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/study_gate.my" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/60123545072" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-section-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">الرئيسية</a></li>
+                        <li><a href="../about.html">من نحن</a></li>
+                        <li><a href="../services.html">الخدمات</a></li>
+                        <li><a href="../partners.html">الشركاء</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-section-title">المزيد</h4>
+                    <ul class="footer-links">
+                        <li><a href="../blog.html">المدونة</a></li>
+                        <li><a href="../contact.html">التواصل</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-section-title">تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span dir="ltr">+60 1235-45072</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>studygate2020@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 STUDYGATE - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/60123545072" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- Registration Form Modal -->
+    <!-- Django Template: {% include 'includes/registration-form.html' %} -->
+    <div id="registrationModal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeRegistrationForm()" aria-label="Close">&times;</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">نموذج التقديم على طلب قبول من معهد <span id="instituteName">المعهد</span></h2>
+                <p class="modal-description">
+                    قم بتعبئة الحقول أدناه لطلب قبول من المعهد، ويرجى التأكد من صحة المعلومات قبل إكمال التسجيل.
+                    في حال أردت الاستفسار، <a href="contact.html">تواصل معنا</a>
+                </p>
+            </div>
+
+            <div class="form-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="progress-circle">1</div>
+                    <span class="progress-label">المعلومات الشخصية</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="progress-circle">2</div>
+                    <span class="progress-label">المستندات المطلوبة</span>
+                </div>
+            </div>
+
+            <form id="registrationForm" method="POST" enctype="multipart/form-data" action="">
+                <input type="hidden" name="institute_name" id="instituteNameInput">
+                
+                <div class="form-step active" data-step="1">
+                    <h3 class="step-title">المعلومات الشخصية</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">الاسم الكامل للطالب <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="full_name" class="form-input" placeholder="أدخل الاسم الكامل" required>
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nationality" class="form-label">الجنسية <span class="required">*</span></label>
+                        <select id="nationality" name="nationality" class="form-select" required>
+                            <option value="">اختر الجنسية</option>
+                            <option value="السعودية">السعودية</option>
+                            <option value="الإمارات">الإمارات</option>
+                            <option value="الكويت">الكويت</option>
+                            <option value="قطر">قطر</option>
+                            <option value="البحرين">البحرين</option>
+                            <option value="عمان">عمان</option>
+                            <option value="الأردن">الأردن</option>
+                            <option value="العراق">العراق</option>
+                            <option value="سوريا">سوريا</option>
+                            <option value="لبنان">لبنان</option>
+                            <option value="فلسطين">فلسطين</option>
+                            <option value="مصر">مصر</option>
+                            <option value="السودان">السودان</option>
+                            <option value="ليبيا">ليبيا</option>
+                            <option value="تونس">تونس</option>
+                            <option value="الجزائر">الجزائر</option>
+                            <option value="المغرب">المغرب</option>
+                            <option value="موريتانيا">موريتانيا</option>
+                            <option value="اليمن">اليمن</option>
+                            <option value="جزر القمر">جزر القمر</option>
+                            <option value="جيبوتي">جيبوتي</option>
+                            <option value="الصومال">الصومال</option>
+                            <option value="دولة أخرى">دولة أخرى</option>
+                        </select>
+                        <span class="error-message" id="nationalityError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="residence" class="form-label">بلد الإقامة <span class="required">*</span></label>
+                        <input type="text" id="residence" name="country_of_residence" class="form-input" placeholder="أدخل بلد الإقامة الحالي" required>
+                        <span class="error-message" id="residenceError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studyDuration" class="form-label">مدة الدراسة المطلوبة (عدد الأشهر) <span class="required">*</span></label>
+                        <select id="studyDuration" name="study_duration" class="form-select" required>
+                            <option value="">اختر المدة</option>
+                            <option value="1">شهر واحد</option>
+                            <option value="2">شهران</option>
+                            <option value="3">3 أشهر</option>
+                            <option value="4">4 أشهر</option>
+                            <option value="5">5 أشهر</option>
+                            <option value="6">6 أشهر</option>
+                            <option value="7">7 أشهر</option>
+                            <option value="8">8 أشهر</option>
+                            <option value="9">9 أشهر</option>
+                            <option value="10">10 أشهر</option>
+                            <option value="11">11 شهر</option>
+                            <option value="12">12 شهر</option>
+                        </select>
+                        <span class="error-message" id="studyDurationError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">البريد الإلكتروني <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="example@email.com" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">رقم الجوال <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <select id="countryCode" name="country_code" class="form-select phone-code" required>
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+971">🇦🇪 +971</option>
+                                <option value="+965">🇰🇼 +965</option>
+                                <option value="+974">🇶🇦 +974</option>
+                                <option value="+60" selected>🇲🇾 +60</option>
+                            </select>
+                            <input type="tel" id="phoneNumber" name="phone_number" class="form-input phone-number" placeholder="123456789" pattern="[0-9]{7,15}" required>
+                        </div>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary btn-large" onclick="nextStep()">
+                            التالي
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h3 class="step-title">المستندات المطلوبة</h3>
+                    
+                    <div class="form-group">
+                        <label for="passportPhoto" class="form-label">صورة الجواز (الصفحة الأولى) <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="passportPhoto" name="passport_photo" class="file-input" accept="image/*,.pdf" required>
+                            <label for="passportPhoto" class="file-label">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span class="file-text">اختر ملف الجواز</span>
+                            </label>
+                            <span class="file-name" id="passportFileName"></span>
+                        </div>
+                        <span class="error-message" id="passportPhotoError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalPhoto" class="form-label">صورة خلفية بيضاء <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="personalPhoto" name="personal_photo" class="file-input" accept="image/*" required>
+                            <label for="personalPhoto" class="file-label">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span class="file-text">اختر الصورة الشخصية</span>
+                            </label>
+                            <span class="file-name" id="personalPhotoName"></span>
+                        </div>
+                        <span class="error-message" id="personalPhotoError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="certificate" class="form-label">شهادة ثانوية <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="certificate" name="high_school_certificate" class="file-input" accept="image/*,.pdf" required>
+                            <label for="certificate" class="file-label">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span class="file-text">اختر الشهادة</span>
+                            </label>
+                            <span class="file-name" id="certificateName"></span>
+                        </div>
+                        <span class="error-message" id="certificateError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="termsAccept" name="accept_terms" class="checkbox-input" required>
+                            <label for="termsAccept" class="checkbox-label">
+                                By submitting this form, I agree to the terms & condition
+                            </label>
+                        </div>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <div class="info-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <p>بعد تقديم طلبك، سيتم مراجعة ملفاتك وسيتواصل معك مستشار تعليمي لبدء إجراءات القبول وتزويدك بمزيد من المعلومات.</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline btn-large" onclick="previousStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                            السابق
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            إرسال الطلب
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <h3 class="success-title">شكرًا لك <span id="successName"></span>، تم تقديم طلبك بنجاح.</h3>
+                <p class="success-text">
+                    ستتم مراجعة ملفاتك، وسيقوم المستشار التعليمي بالتواصل معك عبر بريدك الإلكتروني 
+                    <strong id="successEmail"></strong> أو عبر الواتساب لبدء إجراءات القبول وتزويدك بالمعلومات المطلوبة.
+                </p>
+                <button class="btn btn-primary btn-large" onclick="closeRegistrationForm()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/registration-form.js"></script>
+</body>
+</html>
